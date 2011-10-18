@@ -1,0 +1,6 @@
+#!/bin/sh
+
+FRAME_RATE=12
+QUALITY=16
+
+ffmpeg -i %05d.png -r $FRAME_RATE -s hd480 -vcodec libx264 -crf $QUALITY timelapse.mp4

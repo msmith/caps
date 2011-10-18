@@ -1,0 +1,19 @@
+#!/usr/bin/env ruby
+
+require 'fileutils'
+
+CAP_DIR = File.join(ENV['HOME'], "Desktop", "caps")
+CAP_WIDTH = 640
+
+last_cap = Dir.glob(File.join(CAP_DIR, "*.png")).last
+next_num = if last_cap
+  File.basename(last_cap, ".png").to_i + 1
+else
+  1
+end
+
+FileUtils.mkdir_p(CAP_DIR)
+next_cap = File.join(CAP_DIR, "%05d.png" % next_num)
+
+exec "/usr/sbin/screencapture", "-x", next_cap
+exec "/usr/bin/sips", "--resampleWidth", CAP_WIDTH, next_cap
