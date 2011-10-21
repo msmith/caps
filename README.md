@@ -10,6 +10,9 @@ To install:
     $ git clone <this_repo> caps
     $ crontab cap.crontab
 
+By default, this will create a screencap of your desktop every minute M-F from 8am-8pm. Customize the
+cronjob schedule as you see fit. Screencaps will be saved to ~/Desktop/caps.
+
 To create timelapse video from screencaps:
 
     $ cd ~/Desktop/caps
